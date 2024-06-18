@@ -16,6 +16,7 @@ export interface IShaDateTimePickerProps {
   onConfirm?: (date: Date) => void;
   hideLabel?: boolean;
   labelText?: string;
+  label?: string;
   containerStyle?: StyleProp<ViewStyle>;
   displayText?: StyleProp<TextStyle>;
   labelStyle?: StyleProp<TextStyle>;

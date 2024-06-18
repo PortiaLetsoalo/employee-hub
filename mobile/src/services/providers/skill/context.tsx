@@ -14,7 +14,6 @@ export interface ISkillErrorResponse {
     error_uri: string;
   }
   
-
 export interface ISkillActionContext{
    getSkillsByPersonId?:(id:any)=>void;
    createSkillSet?:(payload:SkillDto[])=>void;

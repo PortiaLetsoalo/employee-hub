@@ -116,12 +116,17 @@ const EmployeeDetails: FC<any> = (props: any) => {
           <ShaDateTimePicker
             date={new Date()}
             mode="date"
+            label={!isEditing ? form?.dateOfBirth : employee?.dateOfBirth}
             modal={true}
             labelText={'Date of Birth'}
             labelStyle={styles.label}
             touchableContainerStyle={styles.input}
             iconStyle={{color: 'black', backgroundColor: 'red', padding: 10}}
             displayText={{color: 'black'}}
+            onConfirm={date => {
+              onChange('dateOfBirth', date);
+            }}
+            onCancel={() => {}}
           />
           <ShaView style={{marginTop: 10}}>
             <ShaText style={[styles.label, {color: '#053787'}]}>
@@ -231,8 +236,7 @@ const EmployeeDetails: FC<any> = (props: any) => {
                   iconColor="white"
                   styles={{
                     container: {marginRight: 5, marginLeft: 5},
-                    input: styles.input,
-                    iconContainer: {top: 0, bottom: 0},
+                    input: [styles.input, {opacity: 1}],
                   }}
                   value={item?.seniorityRatingName}
                   onChangeText={(value: any) => {

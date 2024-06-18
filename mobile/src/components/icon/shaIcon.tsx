@@ -7,7 +7,7 @@ const ShaIcon: FC<IShaIconProps> = (props) => {
   //const properties = addPropValidation(props,);
   const { themeColors } = useTheme();
 
-  return <Icon color={themeColors?.iconColor} {...props} />;
+  return <Icon color={themeColors?.iconColor} {...props}/>;
 };
 
 export default memo(ShaIcon);

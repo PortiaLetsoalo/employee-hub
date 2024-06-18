@@ -38,7 +38,7 @@ const Home: FC<any> = props => {
     getSearchFilteredData,
   } = useHome();
   const {getAllPerson} = usePerson();
-  
+
   useFocusEffect(
     React.useCallback(() => {
       getAllPerson();
@@ -116,11 +116,7 @@ const Home: FC<any> = props => {
                     iconColor="white"
                     styles={{
                       container: {},
-                      input: {
-                        backgroundColor: '#140226',
-                        borderColor: '#8e8c91',
-                        color: 'white',
-                      },
+                      input: styles.autoCompInput,
                       inputMainContainer: {},
                     }}
                     getFilteredData={getSearchFilteredData}
@@ -139,15 +135,12 @@ const Home: FC<any> = props => {
                     styles={{
                       iconContainer: {
                         position: 'absolute',
-                        right: 0,
+                        right: 10,
                         top: 0,
                         bottom: 20,
-                        left: 40,
+                        left: 50,
                       },
-                      input: {
-                        backgroundColor: 'transparent',
-                        borderColor: 'transparent',
-                      },
+                      input: styles.dropdownInput,
                     }}
                     onSelected={onSelectedFilter}
                   />

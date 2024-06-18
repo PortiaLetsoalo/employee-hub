@@ -46,6 +46,11 @@ export const getStyling = () => {
       justifyContent: 'flex-end',
       flex: 1,
     },
+    autoCompInput: {
+      backgroundColor: '#140226',
+      borderColor: '#8e8c91',
+      opacity: 1,
+    },
     title: {fontWeight: '500', color: '#FFFFFF', fontSize: 14},
     rowItem: {
       marginStart: 5,
@@ -72,5 +77,10 @@ export const getStyling = () => {
     },
     filterListContainer: {width: '30%', marginLeft: 5},
     innerContainer: {marginHorizontal: 10},
+    dropdownInput:{
+      backgroundColor: 'transparent',
+      borderColor: 'transparent',
+      opacity: 1
+    },
   });
 };

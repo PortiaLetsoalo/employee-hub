@@ -45,11 +45,6 @@ export const useEmployeeDetails = (navigation: any) => {
       isValid = false;
     }
 
-    // if (!form.dateOfBirth) {
-    //   setErrors((s: any) => ({...s, dateOfBirth: 'DateOfBirth is required'}));
-    //   isValid = false;
-    // }
-
     if (!form.postalCode) {
       setErrors((s: any) => ({...s, postalCode: 'PostalCode is required'}));
       isValid = false;
@@ -130,6 +125,7 @@ export const useEmployeeDetails = (navigation: any) => {
   };
 
   const updateEmployee = (employeeId: string) => {
+    console.log('form', form);
     if (onValidate()) {
       const employeePayload = {...form, id: employeeId};
       updatePerson(employeePayload)
