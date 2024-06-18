@@ -27,5 +27,5 @@ export enum Colors {
   }
   
   export const APP_CONFIG = {
-    apiBaseUrl: " https://4025-102-32-80-44.ngrok-free.app",
+    apiBaseUrl: "https://3629-102-32-80-44.ngrok-free.app",
   };

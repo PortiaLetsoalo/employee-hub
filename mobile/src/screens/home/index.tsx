@@ -60,7 +60,7 @@ const Home: FC<any> = props => {
         <ShaView
           style={[
             styles.skillsFilter,
-            {maxHeight: distinctItemsByName.length > 5 ? 300 : 200},
+            {maxHeight: distinctItemsByName.length === 0 ? 0 : 250},
           ]}>
           <FlatList
             data={distinctItemsByName}
@@ -99,6 +99,7 @@ const Home: FC<any> = props => {
         </>
       );
     }
+    return null
   };
 
   return (
