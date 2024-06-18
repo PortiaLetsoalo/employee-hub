@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShaIcon Component matches snapshot 1`] = `
+<Icon
+  color="red"
+  containerStyle={
+    Object {
+      "padding": 10,
+    }
+  }
+  iconStyle={
+    Object {
+      "margin": 5,
+    }
+  }
+  name="home"
+  onPress={[MockFunction]}
+  size={24}
+  type="font-awesome"
+/>
+`;

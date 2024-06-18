@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShaInput Component matches snapshot 1`] = `
+<Input
+  containerStyle={
+    Object {
+      "marginBottom": 10,
+      "paddingHorizontal": 0,
+      "width": undefined,
+    }
+  }
+  inputContainerStyle={
+    Object {
+      "backgroundColor": "lightgray",
+      "borderBottomWidth": 0,
+      "borderRadius": 5,
+      "padding": 5,
+    }
+  }
+  inputStyle={
+    Object {
+      "backgroundColor": "white",
+      "borderColor": "gray",
+      "borderRadius": 5,
+      "borderWidth": 1,
+      "color": "#2C2738",
+      "flex": 1,
+      "fontFamily": undefined,
+      "fontSize": 14,
+      "height": 40,
+      "margin": 0,
+      "padding": 10,
+      "paddingHorizontal": 10,
+    }
+  }
+  label={
+    <CustomLabel
+      label="Username"
+      labelStyle={
+        Object {
+          "color": undefined,
+          "display": "flex",
+          "fontFamily": undefined,
+          "fontSize": 16,
+          "fontWeight": "bold",
+          "marginBottom": 5,
+        }
+      }
+      required={true}
+    />
+  }
+  labelStyle={
+    Object {
+      "color": undefined,
+      "display": "flex",
+      "fontFamily": undefined,
+      "fontSize": 16,
+      "fontWeight": "bold",
+      "marginBottom": 5,
+    }
+  }
+  onChangeText={[MockFunction]}
+  placeholderTextColor="#B2B8BE"
+  required={true}
+  underlineColorAndroid="transparent"
+  value="testuser"
+/>
+`;

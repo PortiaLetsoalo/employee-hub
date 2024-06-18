@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShaImage Component matches snapshot 1`] = `
+<Image
+  source={
+    Object {
+      "height": 200,
+      "uri": "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg",
+      "width": 200,
+    }
+  }
+  style={
+    Object {
+      "height": 200,
+      "width": 200,
+    }
+  }
+/>
+`;

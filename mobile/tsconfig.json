@@ -23,7 +23,8 @@
       "allowUnreachableCode": false,
       "allowUnusedLabels": false,
       "noStrictGenericChecks": false,
-      "noUncheckedIndexedAccess": true
+      "noUncheckedIndexedAccess": true,
+      
     },
   }
   
