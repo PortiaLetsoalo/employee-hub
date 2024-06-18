@@ -31,6 +31,6 @@ namespace EmployeeHub.Services.SkillService.Dtos
         /// <summary>
         /// 
         /// </summary>
-        public  Guid? PersonId { get; set; }
+        public  string PersonId { get; set; }
     }
 }

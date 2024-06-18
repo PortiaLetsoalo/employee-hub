@@ -24,7 +24,7 @@ namespace EmployeeHub.Services.PersonService
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<PersonCreateDto> GetAsync(Guid id);
+        Task<PersonCreateDto> GetAsync(string id);
         /// <summary>
         /// 
         /// </summary>
@@ -36,6 +36,6 @@ namespace EmployeeHub.Services.PersonService
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task DeleteAsync(Guid id);
+        Task DeleteAsync(string id);
     }
 }

@@ -23,5 +23,6 @@ namespace EmployeeHub.Domain.Skills
         /// 
         /// </summary>
         public virtual Person Person { get; set; }
+
     } 
 }

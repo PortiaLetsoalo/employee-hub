@@ -3,7 +3,7 @@ using System;
 
 namespace EmployeeHub.Services.PersonService.Dtos
 {
-    public class PersonCreateDto:EntityDto<Guid>
+    public class PersonCreateDto:EntityDto<string>
     {
         /// <summary>
         /// 

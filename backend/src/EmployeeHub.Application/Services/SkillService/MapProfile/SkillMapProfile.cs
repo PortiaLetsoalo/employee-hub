@@ -6,12 +6,12 @@ using System;
 
 namespace EmployeeHub.Services.SkillService.MapProfile
 {
-    public class SkillMapProfile:Profile
+    public class SkillMapProfile : Profile
     {
         public SkillMapProfile()
         {
             CreateMap<Skill, SkillDto>()
-                .ForMember(x => x.PersonId, m => m.MapFrom(x => x.Person != null ? x.Person.Id : (Guid?)null))
+                .ForMember(x => x.PersonId, m => m.MapFrom(x => x.Person != null ? x.Person.Id : null))
                 .ForMember(x => x.SeniorityRatingName, m => m.MapFrom(x => x.SeniorityRating != null ? x.SeniorityRating.GetEnumDescriptionValue() : null));
 
             CreateMap<SkillDto, Skill>()

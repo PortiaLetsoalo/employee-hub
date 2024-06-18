@@ -16,9 +16,9 @@ namespace EmployeeHub.Services.PersonService
 {
     public class PersonAppService : ApplicationService, IPersonAppService
     {
-        private readonly IRepository<Person,Guid> _personRepository;
+        private readonly IRepository<Person,string> _personRepository;
         private readonly IRepository<Address,Guid> _adddressRepository;
-        public PersonAppService(IRepository<Person, Guid> personRepository, IRepository<Address, Guid> adddressRepository)
+        public PersonAppService(IRepository<Person, string> personRepository, IRepository<Address, Guid> adddressRepository)
         {
             _adddressRepository = adddressRepository;
             _personRepository = personRepository;
@@ -41,7 +41,7 @@ namespace EmployeeHub.Services.PersonService
         }
 
         [HttpGet]
-        public async Task<PersonCreateDto> GetAsync(Guid id)
+        public async Task<PersonCreateDto> GetAsync(string id)
         {
             var person = await _personRepository.GetAllIncluding(x => x.Address).Where(x=>x.Id == id).FirstOrDefaultAsync();
             return ObjectMapper.Map<PersonCreateDto>(person);
@@ -62,7 +62,7 @@ namespace EmployeeHub.Services.PersonService
         }
 
         [HttpDelete]
-        public async Task DeleteAsync(Guid id)
+        public async Task DeleteAsync(string id)
         {
             await _personRepository.DeleteAsync(id);
         }

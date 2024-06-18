@@ -16,8 +16,8 @@ namespace EmployeeHub.Services.SkillService
     public class SkillAppService : ApplicationService, ISkillAppService
     {
         private readonly IRepository<Skill, Guid> _skillRepository;
-        private readonly IRepository<Person, Guid> _personRepository;
-        public SkillAppService(IRepository<Skill, Guid> skillRepository, IRepository<Person, Guid> personRepository)
+        private readonly IRepository<Person, string> _personRepository;
+        public SkillAppService(IRepository<Skill, Guid> skillRepository, IRepository<Person, string> personRepository)
         {
             _skillRepository = skillRepository;
             _personRepository = personRepository;
@@ -43,6 +43,8 @@ namespace EmployeeHub.Services.SkillService
                 skill = await _skillRepository.InsertAsync(skill);
                 response.Add(skill);
             }
+            await CurrentUnitOfWork.SaveChangesAsync();
+
             return ObjectMapper.Map<List<SkillDto>>(response);
         }
 
@@ -55,7 +57,7 @@ namespace EmployeeHub.Services.SkillService
 
 
         [HttpGet]
-        public async Task<List<SkillDto>> GetAllByPersonIdAsync(Guid personId)
+        public async Task<List<SkillDto>> GetAllByPersonIdAsync(string personId)
         {
             var skills = await _skillRepository.GetAllIncluding(x => x.Person).Where(x=>x.Person.Id == personId).ToListAsync();
             return ObjectMapper.Map<List<SkillDto>>(skills);
@@ -66,7 +68,7 @@ namespace EmployeeHub.Services.SkillService
         {
             var skill = await _skillRepository.GetAllIncluding(x => x.Person).FirstOrDefaultAsync(x => x.Id == input.Id);
             ObjectMapper.Map(input,skill);
-            skill = await _skillRepository.UpdateAsync(skill);
+            skill = await _skillRepository.InsertOrUpdateAsync(skill);
             return ObjectMapper.Map<SkillDto>(skill);
         }
 
@@ -77,10 +79,22 @@ namespace EmployeeHub.Services.SkillService
             foreach(var skillSetInput in input)
             {
                 var skill = await _skillRepository.GetAllIncluding(x => x.Person).FirstOrDefaultAsync(x => x.Id == skillSetInput.Id);
-                ObjectMapper.Map(skillSetInput, skill);
-                skill = await _skillRepository.UpdateAsync(skill);
-                skillset.Add(skill);
+                if (skill == null)
+                {
+                    skill = ObjectMapper.Map<Skill>(skillSetInput);
+                    skill.Person = await _personRepository.GetAsync(skillSetInput.PersonId);
+                    skill = await _skillRepository.InsertAsync(skill);
+                    skillset.Add(skill);
+                }
+                else
+                {
+                    ObjectMapper.Map(skillSetInput, skill);
+                    skill = await _skillRepository.UpdateAsync(skill);
+                    skillset.Add(skill);
+                }
+           
             }
+            await CurrentUnitOfWork.SaveChangesAsync();
 
             return ObjectMapper.Map<List<SkillDto>>(skillset);
         }
@@ -92,7 +106,7 @@ namespace EmployeeHub.Services.SkillService
             return ObjectMapper.Map<SkillDto>(skill);
         }
 
-        [HttpPost]
+        [HttpDelete]
         public async Task DeleteAsync(Guid id)
         {
             await _skillRepository.DeleteAsync(id);

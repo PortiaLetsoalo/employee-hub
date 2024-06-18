@@ -38,7 +38,7 @@ namespace EmployeeHub.Services.SkillService
         /// </summary>
         /// <param name="personId"></param>
         /// <returns></returns>
-        Task<List<SkillDto>> GetAllByPersonIdAsync(Guid personId);
+        Task<List<SkillDto>> GetAllByPersonIdAsync(string personId);
         /// <summary>
         /// 
         /// </summary>

@@ -1629,15 +1629,11 @@ namespace EmployeeHub.Migrations
 
             modelBuilder.Entity("EmployeeHub.Domain.Persons.Person", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<Guid?>("AddressId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ContactNumber")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("datetime2");
@@ -1654,6 +1650,9 @@ namespace EmployeeHub.Migrations
                     b.Property<DateTime?>("DeletionTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("EmailAddress")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
@@ -1667,6 +1666,9 @@ namespace EmployeeHub.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MobileNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -1706,8 +1708,8 @@ namespace EmployeeHub.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("PersonId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("PersonId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int?>("SeniorityRating")
                         .HasColumnType("int");

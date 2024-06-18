@@ -20,7 +20,7 @@ namespace EmployeeHub.EntityFrameworkCore
         /// <summary>
         /// 
         /// </summary>
-        public DbSet<Address> Addresss { get; set; }
+        public DbSet<Address> Addresses { get; set; }
         public EmployeeHubDbContext(DbContextOptions<EmployeeHubDbContext> options)
             : base(options)
         {
