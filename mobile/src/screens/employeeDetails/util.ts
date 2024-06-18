@@ -89,6 +89,7 @@ export const useEmployeeDetails = (navigation: any) => {
     setErrors((s: any) => ({...s, [name]: undefined}));
     setForm((s: any) => ({...s, [name]: value}));
   };
+
   const createEmployee = () => {
     if (onValidate()) {
       createPerson(form)
@@ -125,7 +126,6 @@ export const useEmployeeDetails = (navigation: any) => {
   };
 
   const updateEmployee = (employeeId: string) => {
-    console.log('form', form);
     if (onValidate()) {
       const employeePayload = {...form, id: employeeId};
       updatePerson(employeePayload)

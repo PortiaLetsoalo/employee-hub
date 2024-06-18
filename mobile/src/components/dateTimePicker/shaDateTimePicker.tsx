@@ -25,7 +25,6 @@ const ShaDateTimePicker: FC<IShaDateTimePickerProps> = props => {
   const properties = useDateTime(props);
   const {
     mode,
-    date,
     openModal,
     disabled,
     hideLabel,

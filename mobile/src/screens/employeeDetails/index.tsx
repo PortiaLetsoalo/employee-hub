@@ -13,6 +13,7 @@ import {useEmployeeDetails} from './util';
 import ShaLoader from '../../components/loader/shaLoader';
 import {seniorityRatingRefList} from '../../types/enums/RefListSeniorRating';
 import Toast from 'react-native-toast-message';
+import ShaIcon from '../../components/icon/shaIcon';
 
 const EmployeeDetails: FC<any> = (props: any) => {
   const {route, navigation} = props;
@@ -121,8 +122,7 @@ const EmployeeDetails: FC<any> = (props: any) => {
             labelText={'Date of Birth'}
             labelStyle={styles.label}
             touchableContainerStyle={styles.input}
-            iconStyle={{color: 'black', backgroundColor: 'red', padding: 10}}
-            displayText={{color: 'black'}}
+            iconStyle={{color: 'white'}}
             onConfirm={date => {
               onChange('dateOfBirth', date);
             }}
@@ -259,16 +259,13 @@ const EmployeeDetails: FC<any> = (props: any) => {
                 />
               </ShaView>
               <ShaView style={{width: '10%'}}>
-                <ShaButton
+                <ShaIcon
+                  name="delete"
+                  type="antdesign"
+                  size={25}
+                  color="white"
+                  style={{padding: 5}}
                   onPress={() => removeSkill(index)}
-                  buttonStyle={{backgroundColor: 'red'}}
-                  text="Employee"
-                  // icon={{
-                  //   name: 'delete',
-                  //   type: 'font-awesome',
-                  //   size: 16,
-                  //   color: 'white',
-                  // }}
                 />
               </ShaView>
             </ShaView>
@@ -276,8 +273,8 @@ const EmployeeDetails: FC<any> = (props: any) => {
           <ShaView style={styles.buttonsContainer}>
             <ShaButton
               onPress={addSkill}
-              buttonStyle={styles.button}
-              // icon={{name: 'close', type: 'ant-design', size: 16}}
+              buttonStyle={[styles.button, {backgroundColor: '#8e8c91'}]}
+              icon={{name: 'plus', type: 'entypo', size: 16, color: 'white'}}
               text="Add New Skill"
             />
           </ShaView>
@@ -294,12 +291,15 @@ const EmployeeDetails: FC<any> = (props: any) => {
                   ? createEmployee()
                   : updateEmployee(employee?.id);
               }}
-              buttonStyle={[
-                styles.button,
-                {borderRadius: 40, width: '50%', height: 55},
-              ]}
-              // icon={{name: 'close', type: 'ant-design', size: 16}}
-              text="Save changes to Employee"
+              buttonStyle={[styles.button, styles.saveButton]}
+              titleStyle={{marginLeft: 5}}
+              icon={{
+                name: 'circle-with-plus',
+                type: 'entypo',
+                size: 25,
+                color: 'white',
+              }}
+              text="Save"
             />
           </ShaView>
         </ShaView>

@@ -1,8 +1,7 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
 import ShaText from '../../../components/text/shaText';
 import {getStyling} from './style';
-import ShaView from '../../../components/view/shaView';
 
 const CustomLabel: React.FC<CustomLabelProps> = ({
   label,

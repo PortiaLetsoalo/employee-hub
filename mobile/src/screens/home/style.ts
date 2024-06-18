@@ -75,7 +75,7 @@ export const getStyling = () => {
       justifyContent: 'space-evenly',
       marginHorizontal: 10,
     },
-    filterListContainer: {width: '30%', marginLeft: 5},
+    filterListContainer: {width: '30%', marginLeft: 0},
     innerContainer: {marginHorizontal: 10},
     dropdownInput:{
       backgroundColor: 'transparent',

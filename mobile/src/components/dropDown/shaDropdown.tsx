@@ -75,9 +75,6 @@ const ShaDropdown: FC<IShaDropdownProps<any>> = (props: any) => {
         <ShaView
           style={{...style.listContainer, marginTop: hideLabel ? 45 : 45}}>
           {loading ? (
-            // <ShaLoader loading>
-            //   <ShaView style={{ height: 300 }}></ShaView>
-            // </ShaLoader>
             <ShaView style={{height: 300}}></ShaView>
           ) : (
             <FlatList

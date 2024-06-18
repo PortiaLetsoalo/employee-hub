@@ -113,7 +113,7 @@ const Home: FC<any> = props => {
                     data={[]}
                     valuePropName=""
                     placeholder="Search"
-                    iconColor="white"
+                    iconColor="transparent"
                     styles={{
                       container: {},
                       input: styles.autoCompInput,

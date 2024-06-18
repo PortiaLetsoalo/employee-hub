@@ -23,13 +23,11 @@ const EmployeeListItem: FC<any> = props => {
         />
         <ShaView style={styles.subContainer}>
           <ShaView style={styles.row}>
-            {/* <ShaIcon name="calendar-outline" type={'ionicon'} size={12} /> */}
             <ShaText style={styles.title}>
               {firstName} {lastName}
             </ShaText>
           </ShaView>
           <ShaView style={styles.row}>
-            {/* <ShaIcon name="location-outline" type={'ionicon'} size={12} /> */}
             <ShaText style={[styles.rowItem, {fontWeight: '700'}]}>
               {contactNumber}
             </ShaText>

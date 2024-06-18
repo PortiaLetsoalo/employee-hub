@@ -6,7 +6,7 @@ export const getStyling = () => {
   return StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#140226',
+      backgroundColor: '#0d020f',
     },
     formContainer: {
       marginHorizontal: 10,
@@ -14,6 +14,7 @@ export const getStyling = () => {
       padding: 10,
       borderRadius: 10,
     },
+    saveButton:{borderRadius: 40,paddingHorizontal: 18,paddingLeft: 15,backgroundColor: '#7427c2'},
     input: {backgroundColor: '#8e8c91', borderWidth: 0},
     label: {
       color: 'white',
