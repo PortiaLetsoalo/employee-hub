@@ -23,7 +23,12 @@ namespace EmployeeHub.Services.PersonService
             _adddressRepository = adddressRepository;
             _personRepository = personRepository;
         }
-
+        /// <summary>
+        /// Creating both person and address at the same time.
+        /// because personCreateDto input includes all Address propreties.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<PersonCreateDto> CreateAsyc(PersonCreateDto input)
         {
@@ -46,7 +51,14 @@ namespace EmployeeHub.Services.PersonService
             var person = await _personRepository.GetAllIncluding(x => x.Address).Where(x=>x.Id == id).FirstOrDefaultAsync();
             return ObjectMapper.Map<PersonCreateDto>(person);
         }
-
+        /// <summary>
+        /// Updating both person and address at the same time,because personCreateDto input includes all Address propreties.
+        ///We first get the person we want to update along with their address information(addressId since its 
+        ///required in the UpdateAddress function
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        /// <exception cref="UserFriendlyException"></exception>
 
         [HttpPut]
         public async Task<PersonCreateDto> UpdateAsync(PersonCreateDto input)
@@ -68,7 +80,8 @@ namespace EmployeeHub.Services.PersonService
         }
 
         /// <summary>
-        /// 
+        /// Checking if the passed Address input exist in the db first.
+        /// if address does not exist in the db we insert the address in the db.
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
