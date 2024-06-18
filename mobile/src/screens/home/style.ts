@@ -37,7 +37,6 @@ export const getStyling = () => {
     },
     skillsFilter: {
       paddingHorizontal: 10,
-      marginVertical: 9,
       padding: 0,
       flexDirection: 'row',
       borderRadius: 30,
@@ -50,6 +49,7 @@ export const getStyling = () => {
       backgroundColor: '#140226',
       borderColor: '#8e8c91',
       opacity: 1,
+      color: 'white',
     },
     title: {fontWeight: '500', color: '#FFFFFF', fontSize: 14},
     rowItem: {
@@ -80,7 +80,8 @@ export const getStyling = () => {
     dropdownInput:{
       backgroundColor: 'transparent',
       borderColor: 'transparent',
-      opacity: 1
+      opacity: 1,
+      color: 'white',
     },
   });
 };

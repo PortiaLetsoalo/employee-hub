@@ -42,6 +42,10 @@ const Home: FC<any> = props => {
   useFocusEffect(
     React.useCallback(() => {
       getAllPerson();
+      return () => {
+        getAllPerson();
+        setModalOpen(false);
+      };
     }, [navigation]),
   );
 
@@ -60,10 +64,11 @@ const Home: FC<any> = props => {
         <ShaView
           style={[
             styles.skillsFilter,
-            {maxHeight: distinctItemsByName.length === 0 ? 0 : 250},
+            {maxHeight: distinctItemsByName?.length === 0 ? 0 : 150},
           ]}>
           <FlatList
             data={distinctItemsByName}
+            nestedScrollEnabled
             renderItem={({item}) => (
               <SkillListItem
                 key={item?.id}
@@ -118,7 +123,7 @@ const Home: FC<any> = props => {
                     styles={{
                       container: {},
                       input: styles.autoCompInput,
-                      inputMainContainer: {},
+                      inputMainContainer: {},                   
                     }}
                     getFilteredData={getSearchFilteredData}
                   />
@@ -159,6 +164,7 @@ const Home: FC<any> = props => {
                 <>
                   <FlatList
                     data={employeeData ?? persons?.value}
+                    nestedScrollEnabled
                     ListEmptyComponent={() => (
                       <ShaText style={styles.footerText}>No Data Found</ShaText>
                     )}
